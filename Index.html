@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ôn tập Tin học 10 – Bài 8</title>
+<style>
+:root{--navy:#10264d;--blue:#1769aa;--sky:#eaf4ff;--gold:#ffd166;--orange:#f28c28;--green:#168653;--red:#c83e4d;--gray:#667085;--ink:#17243a;--paper:#f5f8fc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.55 "Segoe UI",Arial,sans-serif}
+header{background:linear-gradient(120deg,#10264d,#1769aa);color:white;padding:26px 18px 30px;border-bottom:7px solid var(--gold)}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}header .eyebrow{color:#ffe08a;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:16px}
+h1{font-size:clamp(26px,4vw,40px);line-height:1.15;margin:8px 0}header p{margin:8px 0 0}
+main{padding:20px 0 50px}.panel{background:white;border:1px solid #dbe4f0;border-radius:18px;padding:20px;margin:0 0 18px;box-shadow:0 5px 20px #10264d0b}
+h2{font-size:26px;color:var(--navy);margin:0 0 12px}h3{font-size:21px;color:var(--blue);margin:18px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+label{display:block;font-weight:700;margin:5px 0}input,select,textarea{font:inherit;width:100%;padding:11px 12px;border:1.5px solid #b8c8dc;border-radius:10px;background:#fff;color:var(--ink);min-height:48px}
+button{font:inherit;font-weight:750;border:0;border-radius:11px;padding:11px 16px;cursor:pointer;min-height:48px}
+button:focus,input:focus,select:focus,textarea:focus{outline:3px solid #8dc8ff;outline-offset:2px}
+.primary{background:var(--blue);color:#fff}.navy{background:var(--navy);color:white}.gold{background:var(--gold);color:#382900}.light{background:#e8f2ff;color:var(--navy);border:1px solid #c8ddf7}.danger{background:#ffeaec;color:#9d1c2b;border:1px solid #f4b9c0}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}.tab{background:#e7edf6;color:#20334f}.tab.active{background:var(--gold);color:#3d2d00}
+.hidden{display:none!important}.muted{color:var(--gray)}.pill{display:inline-block;background:#e8f2ff;color:#174b82;border-radius:30px;padding:4px 10px;font-size:15px;font-weight:800}
+.callout{background:#fff6db;border-left:5px solid var(--orange);padding:12px 15px;border-radius:8px}
+.knowledge-card{border:1px solid #dce7f4;border-radius:13px;padding:14px;margin:10px 0;background:#fbfdff}
+table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #d7e1ed;padding:10px;text-align:left;vertical-align:top}th{background:#eaf2fb;color:#17365e}
+.question{border:1px solid #d9e3ef;border-radius:14px;padding:15px;margin:12px 0;background:#fff}
+.question p{margin:0 0 10px}.options{display:grid;gap:8px}.opt{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid #dce4ef;border-radius:10px;font-weight:500;cursor:pointer}.opt input{width:22px;min-height:22px;height:22px;margin-top:4px;flex:0 0 auto}
+.status{font-weight:850;border-radius:7px;padding:3px 9px;display:inline-block;margin-top:9px;font-size:16px}.s-correct{color:#096c3e;background:#dcf8e9}.s-wrong{color:#a91e30;background:#ffe4e7}.s-empty{color:#596579;background:#e9edf2}
+.explain{background:#f1f7ff;border-radius:9px;padding:10px 12px;margin-top:10px}.small{font-size:16px}.score{font-size:28px;font-weight:900;color:var(--blue)}
+footer{text-align:center;color:#667085;padding:20px;font-size:15px}
+@media(max-width:700px){.grid,.grid3{grid-template-columns:1fr}.panel{padding:15px;border-radius:14px}h2{font-size:23px}header{padding:22px 0}body{font-size:18px}table{font-size:16px}th,td{padding:7px}}
+@media print{header{background:white;color:#10264d;border-bottom:2px solid #10264d}.tabs,.btnrow,button,.no-print{display:none!important}body{background:white}.panel{box-shadow:none;break-inside:avoid}.hidden{display:block!important}}
+</style></head>
+<body>
+<div class="callout" style="max-width:1100px;margin:16px auto 0"><b>Website ôn tập kết nối Google Sheets:</b> giáo viên cần dán URL Web App vào biến <code>GOOGLE_APPS_SCRIPT_URL</code> trong tệp HTML sau khi triển khai Apps Script. Khi chưa cấu hình URL, kết quả chỉ lưu trên thiết bị.</div>
+<header><div class="wrap"><div class="eyebrow">Học hiểu · Luyện tập · Tự đánh giá</div><h1>MẠNG MÁY TÍNH TRONG CUỘC SỐNG HIỆN ĐẠI</h1><p>Tin học 10 · Bộ sách Kết nối tri thức với cuộc sống · Bài 8</p></div></header>
+<main class="wrap">
+<section class="panel" id="identity">
+<h2>👋 Bắt đầu ôn tập</h2><p>Nhập thông tin trước khi ôn tập. Kết quả được lưu trên thiết bị và gửi đến bảng điểm của giáo viên khi đã cấu hình website.</p>
+<div class="grid"><div><label for="student">Họ tên học sinh <span style="color:#c83e4d">*</span></label><input id="student" required placeholder="Ví dụ: Nguyễn Minh Anh"></div><div><label for="className">Lớp <span style="color:#c83e4d">*</span></label><input id="className" required placeholder="Ví dụ: 10A1"></div></div>
+<p class="small muted">Kết quả vẫn lưu trên trình duyệt này. Khi giáo viên đã cấu hình URL Apps Script, mỗi lượt luyện tập/đề ôn tập sẽ gửi bản tóm tắt lên Google Sheets.</p>
+<div class="btnrow"><button class="primary" id="startBtn">Vào bài ôn tập →</button></div><p id="identityMsg" class="small" role="status"></p>
+</section>
+<section id="workspace" class="hidden">
+<div class="panel"><div class="grid"><div><span class="pill">HỌC SINH</span><div id="who" style="font-weight:800;margin-top:6px"></div></div><div><span class="pill">TIẾN TRÌNH</span><div style="margin-top:6px">Hệ thống kiến thức → Luyện tập → Đề ôn tập</div></div></div></div>
+<nav class="tabs no-print" aria-label="Điều hướng bài học">
+<button class="tab active" data-page="knowledge">1. Hệ thống kiến thức</button><button class="tab" data-page="practice">2. Luyện tập</button><button class="tab" data-page="exam">3. Đề ôn tập</button><button class="tab" data-page="history">4. Lịch sử kết quả</button>
+</nav>
+<section class="page" id="page-knowledge">
+<div class="panel"><h2>📘 HỆ THỐNG KIẾN THỨC</h2><p class="muted">Tóm lược theo các trang SGK người dùng cung cấp (Bài 8, trang in 38–43). Nội dung được sắp xếp theo tiến trình khái niệm → vai trò → công nghệ → vận dụng.</p>
+<h3>1. Yêu cầu cần đạt</h3><ul><li>Hiểu được sự khác biệt giữa mạng LAN và Internet.</li><li>Trình bày được những thay đổi về chất lượng cuộc sống, phương thức học tập và làm việc khi mạng máy tính được sử dụng rộng rãi.</li><li>Nêu được một số công nghệ dựa trên Internet như điện toán đám mây và kết nối vạn vật (IoT).</li></ul>
+<h3>2. Mạng LAN và Internet</h3><div class="knowledge-card"><b>Mạng cục bộ (LAN)</b>: phạm vi địa lí nhỏ như gia đình, trường học, công ty; các thiết bị kết nối trực tiếp trong mạng qua thiết bị như Hub, Switch, Wi‑Fi; có chủ sở hữu.</div>
+<div class="knowledge-card"><b>Internet</b>: mạng diện rộng quy mô toàn cầu, liên kết các LAN hoặc máy tính riêng lẻ; kết nối qua Router và nhà cung cấp dịch vụ Internet; không có chủ sở hữu riêng hay một cơ quan quản lí tập trung duy nhất.</div>
+<table><thead><tr><th>Tiêu chí</th><th>Mạng cục bộ (LAN)</th><th>Internet</th></tr></thead><tbody><tr><td>Phạm vi, quy mô</td><td>Cơ quan, gia đình, trường học</td><td>Toàn cầu</td></tr><tr><td>Cách kết nối</td><td>Trực tiếp trong mạng qua Hub, Switch, Wi‑Fi</td><td>Qua Router và nhà cung cấp dịch vụ kết nối</td></tr><tr><td>Sở hữu</td><td>Có chủ sở hữu</td><td>Không có chủ sở hữu riêng</td></tr></tbody></table>
+<p><b>Thiết bị trong mô hình mạng:</b> máy chủ, máy tính, máy in là thiết bị đầu cuối; Hub/Switch và Router là thiết bị kết nối. Theo SGK, Hub/Switch chuyển tiếp dữ liệu trong nội bộ LAN; Router kết nối các LAN với nhau và chuyển dữ liệu ra cổng Internet khi địa chỉ nhận không nằm trong LAN.</p>
+<h3>3. Vai trò của Internet</h3><ul><li><b>Giao tiếp cộng đồng:</b> liên lạc, kết nối thông tin, chia sẻ kiến thức và kinh nghiệm, trao đổi ý tưởng, nhận phản hồi nhanh mà không cần gặp trực tiếp.</li><li><b>Giáo dục:</b> truy cập bài giảng, sách/bài tham khảo; học trực tuyến từ xa, mọi lúc mọi nơi; hỗ trợ học tập suốt đời.</li><li>Internet là kho tri thức lớn, thường xuyên cập nhật; ảnh hưởng sâu sắc đến cách làm việc, học tập và giao tiếp.</li></ul>
+<h3>4. Điện toán đám mây</h3><p><b>Định nghĩa theo SGK:</b> việc phân phối các tài nguyên công nghệ thông tin theo nhu cầu qua Internet với chính sách thanh toán theo mức sử dụng. Việc dùng chung tài nguyên có thể miễn phí hoặc tính phí theo hạn mức.</p>
+<table><thead><tr><th>Loại dịch vụ</th><th>Ý nghĩa</th><th>Ví dụ được nêu trong SGK</th></tr></thead><tbody><tr><td><b>SaaS</b> – phần mềm như là dịch vụ</td><td>Thuê/dùng phần mềm ứng dụng qua mạng</td><td>Google Docs; Zoom</td></tr><tr><td><b>PaaS</b> – nền tảng như là dịch vụ</td><td>Thuê nền tảng để phát triển phần mềm ứng dụng</td><td>Nền tảng bản đồ số dùng để xây dựng ứng dụng</td></tr><tr><td><b>IaaS</b> – hạ tầng như là dịch vụ</td><td>Thuê hạ tầng như máy chủ, thiết bị lưu trữ</td><td>Lưu trữ thông tin qua Dropbox/Google Drive được SGK nêu là ví dụ thuê phần cứng đơn giản</td></tr></tbody></table>
+<p><b>Lợi ích:</b> linh hoạt, sẵn sàng cao; chất lượng và độ ổn định nhờ hạ tầng chuyên nghiệp; tiết kiệm chi phí do chia sẻ tài nguyên và có thể trả theo mức sử dụng.</p>
+<h3>5. Kết nối vạn vật (IoT)</h3><p><b>IoT</b> là hệ thống liên mạng gồm các phương tiện/vật dụng và thiết bị thông minh có cảm biến, phần mềm chuyên dụng giúp chúng tự động kết nối, thu thập và trao đổi dữ liệu qua mạng; không nhất thiết có tương tác trực tiếp giữa người với người hoặc người với máy tính.</p><p><b>Lợi ích:</b> thu thập dữ liệu trên diện rộng; hoạt động liên tục, tự động và cung cấp dữ liệu tức thời; hỗ trợ nơi con người khó làm việc; tiết kiệm chi phí lao động thu thập/xử lí thủ công.</p><p><b>Ví dụ SGK:</b> thu phí không dừng bằng thẻ RFID; công tơ điện tử gửi dữ liệu qua Internet; nhà thông minh tự điều khiển thiết bị theo cảm biến.</p>
+<h3>6. Quy trình tư duy khi xử lí tình huống</h3><ol><li>Xác định phạm vi: trong một gia đình/trường/cơ quan hay kết nối toàn cầu.</li><li>Xác định nhu cầu: giao tiếp/học tập; dùng phần mềm qua Internet; hay thiết bị tự thu thập và trao đổi dữ liệu.</li><li>Ghép đúng khái niệm: LAN/Internet; vai trò Internet; SaaS/PaaS/IaaS; IoT.</li><li>Giải thích bằng dấu hiệu cụ thể trong tình huống, không chỉ nêu tên công nghệ.</li></ol>
+<h3>7. Những nhầm lẫn thường gặp</h3><ul><li>LAN không đồng nghĩa với Internet; một LAN có thể kết nối Internet thông qua nhà cung cấp dịch vụ.</li><li>Router không giống Hub/Switch: Router kết nối các mạng; Hub/Switch chuyển tiếp dữ liệu trong LAN.</li><li>Không phải mọi dịch vụ Internet đều mặc nhiên là điện toán đám mây; cần xét việc cung cấp tài nguyên CNTT theo nhu cầu.</li><li>IoT không chỉ là thiết bị có Internet: trọng tâm là thiết bị/vật dụng thông minh kết nối, thu thập và trao đổi dữ liệu tự động.</li><li>Không khẳng định mọi thiết bị IoT chỉ giao tiếp qua Internet theo một cách duy nhất; SGK đặt vấn đề này để học sinh thảo luận.</li></ul>
+<div class="callout"><b>Lưu ý về nguồn:</b> Nội dung trên dựa trên bản SGK đính kèm, trang in 38–43. Phần SGK này không nêu công thức tính toán. Một số tình huống luyện tập dưới đây là câu hỏi mới do ứng dụng biên soạn từ các ý trong nguồn; không phải trích nguyên văn SGK.</div>
+<div class="btnrow"><button class="primary" onclick="showPage('practice')">Đã học xong – sang luyện tập →</button></div></div></section>
+<section class="page hidden" id="page-practice"><div class="panel"><h2>🧩 LUYỆN TẬP THEO DẠNG</h2><p>4 nhóm nhiệm vụ cốt lõi được xác định từ các mục và yêu cầu cần đạt của bài. Mỗi nhóm mặc định có 10 câu; giáo viên có thể chọn số câu hiển thị.</p>
+<div class="grid"><div><label for="practiceCount">Số câu mỗi dạng</label><select id="practiceCount"><option>5</option><option selected>10</option><option>15</option></select></div><div><label for="practiceType">Chọn dạng</label><select id="practiceType"><option value="lan">Dạng 1 – Phân biệt LAN và Internet</option><option value="role">Dạng 2 – Vai trò của Internet</option><option value="cloud">Dạng 3 – Điện toán đám mây</option><option value="iot">Dạng 4 – Kết nối vạn vật (IoT)</option></select></div></div>
+<div id="typeGuide" class="knowledge-card"></div><div id="practiceQuestions"></div><div class="btnrow"><button class="light" id="checkPractice">Kiểm tra câu trả lời</button><button class="primary" id="newPractice">Tạo lượt luyện tập mới</button><button class="light" onclick="showPage('exam')">Sang đề ôn tập →</button></div><p class="small muted">Trạng thái mỗi câu được hiển thị: ĐÚNG (xanh), SAI (đỏ), CHƯA LÀM (xám). Đáp án và giải thích hiện sau khi kiểm tra.</p></div></section>
+<section class="page hidden" id="page-exam"><div class="panel"><h2>📝 ĐỀ ÔN TẬP RIÊNG</h2><p>Đề tổng hợp được tạo riêng, không sao chép câu luyện tập. Đây là cấu hình đề xuất để ôn tập, không phải cấu trúc đề chính thức của cơ quan quản lý.</p>
+<div class="callout" id="configWarning"></div>
+<div class="grid3"><div><label>Tổng số câu chính</label><input value="22" disabled></div><div><label>Phần I</label><input value="12 trắc nghiệm 4 lựa chọn" disabled></div><div><label>Phần II</label><input value="4 câu Đúng/Sai × 4 ý" disabled></div></div>
+<div class="grid"><div><label>Phần III</label><input value="6 câu trả lời ngắn" disabled></div><div><label>Thang điểm</label><input value="10 điểm" disabled></div></div>
+<p class="small">Quy tắc chấm AI đề xuất để giáo viên duyệt: 34 đơn vị chấm độc lập (12 lựa chọn + 16 ý Đúng/Sai + 6 trả lời ngắn), mỗi đơn vị đúng được 10/34 điểm. Điểm làm tròn 2 chữ số. Câu trả lời mở/không thể đối chiếu khách quan được đánh dấu cần giáo viên chấm, không tự động tính đúng.</p>
+<div id="examQuestions"></div>
+<div class="btnrow no-print"><button class="primary" id="submitExam">Nộp bài và chấm điểm</button><button class="light" id="printReport">In báo cáo</button><button class="light" onclick="showPage('history')">Xem lịch sử →</button></div><div id="examResult" aria-live="polite"></div></div></section>
+<section class="page hidden" id="page-history"><div class="panel"><h2>📊 LỊCH SỬ KẾT QUẢ</h2><p class="muted">Lịch sử bên dưới là dữ liệu trên thiết bị này. Bảng Google Sheets của giáo viên lưu các lượt đã gửi từ mọi thiết bị; dùng chức năng xuất CSV trong Google Sheets để tổng hợp.</p><div class="btnrow no-print"><button class="primary" id="exportCsv">Xuất CSV</button><button class="light" id="printHistory">In lịch sử</button><button class="danger" id="clearHistory">Xóa lịch sử trên thiết bị</button></div><div id="historyTable"></div></div></section>
+<div class="btnrow no-print"><button class="light" id="prevPage">← Trước</button><button class="light" onclick="showPage('knowledge')">⌂ Trang chủ / Kiến thức</button><button class="primary" id="nextPage">Tiếp →</button></div>
+</section></main><footer>Ứng dụng HTML độc lập · Không cần Internet để chạy · Không tự gửi dữ liệu đi nơi khác</footer>
+<script>
+const $=id=>document.getElementById(id);
+const bank={
+lan:[
+['Phạm vi của Internet là gì?',['Chỉ trong gia đình','Chỉ trong trường học','Toàn cầu','Chỉ trong một công ty'],2,'Internet là mạng diện rộng quy mô toàn cầu.'],
+['Mạng máy tính trong phòng máy của một trường, chỉ kết nối các máy trong trường, phù hợp nhất với khái niệm nào?',['LAN','Internet','IoT','PaaS'],0,'LAN có phạm vi địa lí nhỏ như trường học.'],
+['Thiết bị nào kết nối các LAN với nhau theo mô tả trong bài?',['Máy in','Router','Bàn phím','Màn hình'],1,'Router dùng để kết nối các LAN với nhau.'],
+['Theo bảng so sánh trong SGK, LAN có đặc điểm sở hữu nào?',['Không có chủ sở hữu','Có chủ sở hữu','Do một tổ chức quốc tế sở hữu','Luôn thuộc nhà cung cấp Internet'],1,'LAN có chủ sở hữu như cá nhân, gia đình hoặc cơ quan.'],
+['Thiết bị nào được nêu là có thể chuyển tiếp dữ liệu trong nội bộ LAN?',['Hub/Switch','Thẻ RFID','Công tơ điện tử','Máy chủ Internet duy nhất'],0,'Hub/Switch chuyển tiếp dữ liệu trong nội bộ LAN.'],
+['Gia đình muốn truy cập Internet từ mạng gia đình, thường cần đăng kí với ai?',['Nhà cung cấp dịch vụ Internet','Nhà sản xuất máy in','Thư viện trường','Nhà phát triển trò chơi'],0,'SGK nêu cần đăng kí qua nhà cung cấp dịch vụ Internet.'],
+['Một mạng kết nối trực tiếp máy tính và máy in trong văn phòng nhỏ thường là gì?',['LAN','Toàn bộ Internet','IaaS','IoT toàn cầu'],0,'Mạng trong phạm vi văn phòng là mạng cục bộ.'],
+['Điểm khác biệt phù hợp nhất giữa LAN và Internet là gì?',['LAN luôn không dây','Internet chỉ có trong trường học','LAN phạm vi nhỏ, Internet quy mô toàn cầu','Internet luôn có một chủ sở hữu duy nhất'],2,'Khác biệt trọng tâm là phạm vi/quy mô và cách kết nối.'],
+['Nếu địa chỉ nhận dữ liệu không nằm trong LAN, thiết bị nào theo mô tả sẽ chuyển dữ liệu ra cổng Internet?',['Router','Máy in','Bàn phím','Màn hình'],0,'Đây là nguyên lí hoạt động của Router được mô tả trong SGK.'],
+['Nhận định nào đúng?',['Internet là tài sản riêng của một gia đình','LAN và Internet hoàn toàn giống nhau','Một LAN có thể được kết nối Internet qua nhà cung cấp dịch vụ','Hub luôn thay thế Router trong kết nối các mạng'],2,'LAN có thể kết nối Internet sau khi đăng kí dịch vụ.']],
+role:[
+['Tình huống nào thể hiện vai trò của Internet trong giáo dục?',['Học sinh học bài trực tuyến từ xa','Máy in hết mực','Tắt máy tính','Rút dây mạng'],0,'Internet hỗ trợ học trực tuyến từ xa, mọi lúc, mọi nơi.'],
+['Internet hỗ trợ giao tiếp cộng đồng bằng cách nào?',['Chỉ giao tiếp khi gặp trực tiếp','Chia sẻ thông tin và nhận phản hồi nhanh','Ngăn mọi người trao đổi','Chỉ gửi dữ liệu trong một máy'],1,'SGK nêu liên lạc, chia sẻ kiến thức và phản hồi nhanh.'],
+['Một học sinh truy cập bài giảng và tài liệu tham khảo qua mạng. Đây là ví dụ về vai trò nào?',['Giáo dục','Sản xuất điện','Thu phí tự động','Điều khiển cảm biến nhà'],0,'Bài giảng và tài liệu tham khảo là ứng dụng trong giáo dục.'],
+['Đặc điểm nào được SGK nhấn mạnh về kho tri thức Internet?',['Không bao giờ thay đổi','Thường xuyên được cập nhật','Chỉ có nội dung giải trí','Chỉ dùng trong giờ học'],1,'Internet là kho tri thức lớn, thường xuyên cập nhật.'],
+['Nhóm hoạt động nào được Internet làm thay đổi rõ rệt theo bài học?',['Học tập, làm việc và giao tiếp','Chỉ việc nấu ăn','Chỉ việc ngủ','Không hoạt động nào'],0,'SGK nêu ảnh hưởng đến cách làm việc, học tập và giao tiếp.'],
+['Học sinh ở xa tham gia lớp học trực tuyến. Lợi ích nổi bật là gì?',['Không cần học tập','Có thể học từ xa','Không cần thiết bị','Không cần kết nối mạng'],1,'Nền tảng trực tuyến giúp học từ xa khi có kết nối phù hợp.'],
+['Bạn trao đổi ý tưởng và nhận phản hồi mà không gặp mặt trực tiếp. Vai trò nào được thể hiện?',['Giao tiếp cộng đồng','Sở hữu LAN','IaaS','Cảm biến IoT'],0,'Internet giúp giao tiếp không cần tiếp xúc trực tiếp.'],
+['Cách sử dụng Internet nào phù hợp với tinh thần học tập suốt đời?',['Chỉ học một lần','Tìm và học tài liệu mới khi cần','Tránh mọi nguồn tri thức','Chỉ học khi có mặt tại lớp'],1,'Internet hỗ trợ tiếp cận tài liệu và học tập liên tục.'],
+['Lựa chọn nào không phải ví dụ trực tiếp về vai trò Internet trong giáo dục?',['Truy cập bài giảng','Học trực tuyến','Tra cứu tài liệu','Cảm biến tự bật đèn theo chuyển động'],3,'Tự bật đèn theo cảm biến là ví dụ IoT/nhà thông minh.'],
+['Khi dùng tài liệu trên Internet, học sinh nên hiểu Internet là gì?',['Nguồn thông tin phong phú cần sử dụng có mục đích','Nguồn nào cũng luôn chính xác tuyệt đối','Chỉ có thông tin giải trí','Không có tài liệu học tập'],0,'SGK nhấn mạnh nguồn thông tin lớn; đánh giá chất lượng nguồn vẫn là tư duy cần thiết.']],
+cloud:[
+['Điện toán đám mây theo SGK cung cấp tài nguyên CNTT như thế nào?',['Theo nhu cầu qua Internet','Chỉ từ đĩa mềm','Không qua mạng','Chỉ bằng cách mua máy chủ cá nhân'],0,'Định nghĩa nêu phân phối tài nguyên CNTT theo nhu cầu qua Internet.'],
+['Google Docs được nêu là ví dụ thuộc loại dịch vụ nào?',['SaaS','PaaS','IaaS','LAN'],0,'Google Docs là phần mềm ứng dụng dùng qua mạng.'],
+['SaaS là viết tắt của khái niệm nào?',['Phần mềm như là dịch vụ','Nền tảng như là dịch vụ','Hạ tầng như là dịch vụ','Mạng cục bộ'],0,'SaaS = Software as a Service.'],
+['PaaS phù hợp với việc thuê loại tài nguyên nào?',['Nền tảng để phát triển ứng dụng','Chỉ máy in tại nhà','Một mạng LAN độc lập','Thẻ RFID'],0,'PaaS cung cấp nền tảng để phát triển phần mềm ứng dụng.'],
+['IaaS liên quan chủ yếu đến loại tài nguyên nào?',['Hạ tầng như máy chủ và lưu trữ','Chỉ phần mềm soạn thảo','Chỉ lớp học trực tuyến','Chỉ bộ định tuyến gia đình'],0,'IaaS là hạ tầng như là dịch vụ.'],
+['Lợi ích kinh tế của dịch vụ đám mây là gì?',['Luôn phải mua toàn bộ hạ tầng','Có thể trả theo mức sử dụng và chia sẻ tài nguyên','Không thể dùng miễn phí','Bắt buộc dùng một máy tính duy nhất'],1,'SGK nêu chia sẻ tài nguyên và trả theo mức sử dụng.'],
+['Một người cần lưu trữ ảnh trực tuyến và mở khi có Internet. Công nghệ phù hợp nhất là gì?',['Dịch vụ điện toán đám mây','Chỉ máy in','Switch nội bộ','Thẻ thu phí RFID'],0,'SGK nêu Google Drive/Dropbox như ví dụ lưu trữ qua mạng.'],
+['Lợi ích nào được SGK nêu cho dịch vụ đám mây?',['Tính linh hoạt và độ sẵn sàng cao','Không cần kết nối Internet trong mọi trường hợp','Luôn làm tăng chi phí','Chỉ hoạt động trên một máy'],0,'Tính mềm dẻo, sẵn sàng cao là lợi ích được nêu.'],
+['Cô giáo thuê dùng phần mềm tạo lớp học trực tuyến. Ví dụ SGK gợi ý dịch vụ nào?',['SaaS','IaaS','LAN','RFID'],0,'Zoom được SGK nêu là phần mềm ứng dụng.'],
+['Nhận định nào chính xác về điện toán đám mây?',['Mọi dịch vụ đều miễn phí','Tài nguyên có thể miễn phí hoặc tính phí theo hạn mức sử dụng','Chỉ là mạng nội bộ trường học','Không liên quan đến Internet'],1,'SGK mô tả chính sách miễn phí hoặc thanh toán theo mức sử dụng.']],
+iot:[
+['IoT được định nghĩa gần đúng nhất là gì?',['Hệ thống thiết bị thông minh kết nối, tự thu thập và trao đổi dữ liệu','Một phần mềm soạn thảo văn bản','Mạng LAN không có thiết bị','Một loại máy in'],0,'Đây là các dấu hiệu cốt lõi trong định nghĩa IoT của SGK.'],
+['Ví dụ nào trong SGK thể hiện IoT?',['Công tơ điện tử gửi dữ liệu qua Internet','Bút chì thông thường','Sách giấy không có thiết bị','Bàn học không cảm biến'],0,'Công tơ điện tử gửi dữ liệu về đầu mối qua Internet.'],
+['Thẻ RFID trên kính xe hỗ trợ điều gì trong ví dụ thu phí không dừng?',['Truyền thông tin để hệ thống kiểm soát thu phí','Soạn bài trình chiếu','Kết nối máy in trong LAN','Tạo tài khoản email'],0,'Thiết bị đọc RFID thu thông tin thẻ rồi truyền về hệ thống.'],
+['Một lợi ích của IoT là gì?',['Thu thập dữ liệu tự động trên diện rộng','Bắt buộc con người ghi mọi dữ liệu bằng tay','Chỉ hoạt động khi có người thao tác liên tục','Không thể cung cấp dữ liệu tức thời'],0,'SGK nêu thu thập dữ liệu diện rộng và hoạt động tự động.'],
+['Trong nhà thông minh, cảm biến có thể giúp thiết bị nào hoạt động tự động?',['Đèn hoặc điều hòa','Sách giấy','Bàn ghế không thiết bị','Bảng phấn thông thường'],0,'SGK nêu cảm biến điều khiển điều hòa, máy nước nóng và chiếu sáng.'],
+['Vì sao dữ liệu IoT có thể quan trọng trong hệ thống thời gian thực?',['Chậm trễ có thể gây hậu quả','Dữ liệu không bao giờ được dùng','Chỉ dùng để trang trí','Không cần cập nhật'],0,'SGK nêu dữ liệu tức thời quan trọng với các hệ thống thời gian thực.'],
+['Lợi ích nào của IoT được nêu trong bài?',['Giảm lao động thu thập và xử lí thông tin thủ công','Tăng mọi thao tác thủ công','Ngăn thu thập dữ liệu','Chỉ hoạt động khi ngắt mạng'],0,'Tự động hóa giúp tiết kiệm chi phí lao động thủ công.'],
+['Đội giám sát nhận dữ liệu tốc độ xe định kì để phát hiện vi phạm. Công nghệ liên quan nhất là gì?',['IoT','SaaS בלבד','LAN không có cảm biến','Máy in'],0,'Thiết bị giám sát có thể thu thập và gửi dữ liệu tự động.'],
+['Điểm cốt lõi của IoT trong bài là gì?',['Thiết bị/vật dụng thông minh tự động kết nối, thu thập, trao đổi dữ liệu','Chỉ con người gửi email','Chỉ lưu văn bản bằng tay','Mọi thiết bị đều phải có màn hình'],0,'Định nghĩa IoT nhấn mạnh kết nối và trao đổi dữ liệu tự động.'],
+['Nhận định nào phù hợp với SGK về IoT?',['Có thể hoạt động liên tục và cung cấp dữ liệu tức thời','Chỉ dùng cho giải trí','Không thể dùng trong công nghiệp','Bắt buộc có tương tác trực tiếp giữa người với người'],0,'IoT có thể hoạt động tự động và không nhất thiết cần tương tác trực tiếp.']]
+};
+const guides={
+lan:['Dạng 1 – Phân biệt LAN và Internet','Dấu hiệu: phạm vi địa lí, cách kết nối, sở hữu và chức năng Hub/Switch/Router.','Mục tiêu: phân loại mạng và giải thích được vai trò thiết bị.','Hướng tư duy: xác định phạm vi → tìm thiết bị/cách kết nối → đối chiếu bảng LAN/Internet.','Ví dụ: mạng máy tính trong một trường là LAN vì phạm vi giới hạn trong trường.'],
+role:['Dạng 2 – Vai trò của Internet','Dấu hiệu: liên lạc, chia sẻ thông tin, học trực tuyến, truy cập bài giảng/tài liệu.','Mục tiêu: nhận diện tác động đến giao tiếp, giáo dục, học tập và làm việc.','Hướng tư duy: xác định nhu cầu của người dùng rồi liên hệ vai trò Internet phù hợp.','Ví dụ: học sinh học từ xa qua nền tảng trực tuyến thể hiện vai trò Internet trong giáo dục.'],
+cloud:['Dạng 3 – Điện toán đám mây','Dấu hiệu: dùng tài nguyên CNTT qua Internet theo nhu cầu; phân biệt SaaS, PaaS, IaaS.','Mục tiêu: giải thích khái niệm, nhận diện loại dịch vụ và lợi ích.','Hướng tư duy: phần mềm ứng dụng → SaaS; nền tảng phát triển → PaaS; hạ tầng → IaaS.','Ví dụ: dùng Google Docs qua mạng là SaaS vì đây là phần mềm ứng dụng.'],
+iot:['Dạng 4 – Kết nối vạn vật (IoT)','Dấu hiệu: thiết bị thông minh/cảm biến tự động kết nối, thu thập, trao đổi dữ liệu.','Mục tiêu: nhận diện IoT, lợi ích và ứng dụng.','Hướng tư duy: tìm thiết bị thông minh → dữ liệu được thu thập/trao đổi tự động? → nêu lợi ích.','Ví dụ: công tơ điện tử gửi số liệu qua Internet là ví dụ IoT trong bài.']
+};
+const examMC=[
+['Một trường có mạng nội bộ để máy tính và máy in chia sẻ tài nguyên. Khái niệm phù hợp nhất là gì?',['LAN','Internet','IoT','PaaS'],0,'Mạng phạm vi trường học là LAN.'],
+['Thiết bị nào dùng để kết nối các LAN với nhau?',['Router','Máy in','Màn hình','Bàn phím'],0,'Router kết nối các mạng.'],
+['Đặc điểm nào mô tả Internet theo SGK?',['Quy mô toàn cầu','Chỉ thuộc một gia đình','Chỉ kết nối trong một phòng','Luôn có một chủ sở hữu riêng'],0,'Internet là mạng diện rộng quy mô toàn cầu.'],
+['Một lợi ích của Internet trong giao tiếp là gì?',['Chia sẻ thông tin và nhận phản hồi nhanh','Chỉ giao tiếp trực tiếp','Ngăn chia sẻ kiến thức','Chỉ sử dụng trong một LAN'],0,'Đây là một vai trò giao tiếp được SGK nêu.'],
+['Truy cập bài giảng trực tuyến từ xa thể hiện vai trò nào?',['Giáo dục','Thu phí tự động','Điều khiển cảm biến','Sở hữu mạng'],0,'Internet hỗ trợ học từ xa và học tập suốt đời.'],
+['Dịch vụ nào được SGK nêu làm ví dụ SaaS?',['Google Docs','Một Router','Một Switch','Công tơ điện tử'],0,'Google Docs là phần mềm ứng dụng.'],
+['Thuê nền tảng để phát triển ứng dụng tương ứng với loại nào?',['PaaS','SaaS','IaaS','LAN'],0,'PaaS là nền tảng như là dịch vụ.'],
+['Thuê máy chủ và thiết bị lưu trữ qua mạng thuộc loại nào?',['IaaS','SaaS','PaaS','IoT'],0,'IaaS là hạ tầng như là dịch vụ.'],
+['Lợi ích nào của điện toán đám mây được SGK nêu?',['Có thể trả theo mức sử dụng','Luôn phải mua máy chủ riêng','Chỉ dùng ngoại tuyến','Không thể chia sẻ tài nguyên'],0,'Dịch vụ có thể chia sẻ tài nguyên và tính phí theo mức sử dụng.'],
+['Đặc điểm cốt lõi của IoT là gì?',['Thiết bị tự động kết nối, thu thập và trao đổi dữ liệu','Chỉ lưu dữ liệu bằng tay','Chỉ dùng để soạn văn bản','Không có thiết bị thông minh'],0,'Đây là nội dung chính của định nghĩa IoT.'],
+['Hệ thống tự động nhận thông tin thẻ RFID để thu phí cao tốc là ví dụ về gì?',['Ứng dụng IoT','SaaS soạn thảo','Mạng LAN không kết nối','PaaS'],0,'SGK nêu thu phí không dừng với thẻ RFID.'],
+['Điểm nào là lợi ích của IoT trong bài?',['Cung cấp dữ liệu tức thời và giảm thao tác thủ công','Bắt buộc ghi dữ liệu bằng tay','Không thể làm việc liên tục','Chỉ hoạt động khi không có mạng'],0,'IoT hỗ trợ tự động hóa và cung cấp dữ liệu kịp thời.']];
+const examTF=[
+['Một mạng LAN có phạm vi nhỏ, ví dụ gia đình hoặc trường học.',['Đúng','Sai'],[0,0],'LAN có phạm vi địa lí nhỏ.'],
+['Router và Switch có vai trò hoàn toàn giống nhau trong mô hình SGK.',['Đúng','Sai'],[1,1],'Switch chuyển tiếp dữ liệu trong LAN; Router kết nối các LAN.'],
+['Internet hỗ trợ học từ xa và truy cập tài liệu học tập.',['Đúng','Sai'],[0,0],'SGK nêu các lợi ích này trong giáo dục.'],
+['Internet là tài sản riêng của một gia đình.',['Đúng','Sai'],[1,1],'SGK nêu Internet không có chủ sở hữu riêng.'],
+['Google Docs được nêu là phần mềm ứng dụng.',['Đúng','Sai'],[0,0],'Google Docs là ví dụ SaaS.'],
+['PaaS là viết tắt của hạ tầng như là dịch vụ.',['Đúng','Sai'],[1,1],'PaaS là nền tảng như là dịch vụ; IaaS mới là hạ tầng.'],
+['Dịch vụ đám mây có thể tính phí theo mức sử dụng.',['Đúng','Sai'],[0,0],'Đúng theo định nghĩa trong SGK.'],
+['IoT có thể giúp thu thập dữ liệu tự động ở nơi con người khó làm việc.',['Đúng','Sai'],[0,0],'Đây là một lợi ích IoT được nêu.']];
+const examShort=[
+['Viết tên mạng có phạm vi toàn cầu liên kết các mạng LAN.','Internet',['internet'],'từ/cụm từ','Đáp án chuẩn là Internet.'],
+['Viết tên thiết bị kết nối các LAN với nhau theo SGK.','Router',['router','bộ định tuyến'],'từ/cụm từ','Chấp nhận Router hoặc bộ định tuyến.'],
+['Viết tên loại dịch vụ đám mây cung cấp phần mềm ứng dụng qua mạng (viết tắt).','SaaS',['saas'],'kí hiệu','SaaS là phần mềm như là dịch vụ.'],
+['Viết tên loại dịch vụ đám mây cung cấp nền tảng để phát triển ứng dụng (viết tắt).','PaaS',['paas'],'kí hiệu','PaaS là nền tảng như là dịch vụ.'],
+['Viết tên công nghệ kết nối vạn vật bằng chữ viết tắt.','IoT',['iot'],'kí hiệu','IoT là Internet of Things.'],
+['Nêu một ví dụ IoT có trong SGK.','Công tơ điện tử',['công tơ điện tử','thu phí không dừng','nhà thông minh','thẻ rfid'],'từ/cụm từ','Có thể trả lời công tơ điện tử, thu phí không dừng/RFID hoặc nhà thông minh.']
+];
+let submitted=false, currentPage='knowledge', practiceChecked=false, sessionStart=Date.now(), examStart=null;
+function showPage(p){currentPage=p;if(p==='exam' && !$('examQuestions').innerHTML) renderExam();document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$('page-'+p).classList.remove('hidden');document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='history')renderHistory();window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+$('startBtn').onclick=()=>{let n=$('student').value.trim(),c=$('className').value.trim();if(!n||!c){$('identityMsg').textContent='Vui lòng nhập đầy đủ họ tên và lớp.';return} $('who').textContent=n+' · '+c;sessionStart=Date.now();$('identity').classList.add('hidden');$('workspace').classList.remove('hidden');renderPractice();renderExam();showPage('knowledge');};
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderPractice(){let type=$('practiceType').value,count=+$('practiceCount').value;let g=guides[type];$('typeGuide').innerHTML='<h3>'+g[0]+'</h3><p><b>Dấu hiệu nhận diện:</b> '+g[1]+'</p><p><b>Mục tiêu:</b> '+g[2]+'</p><p><b>Hướng tư duy:</b> '+g[3]+'</p><p><b>Ví dụ có lời giải:</b> '+g[4]+'</p><p class="small muted">Câu luyện tập được phân hóa từ nhận biết đến vận dụng tình huống.</p>';let arr=bank[type].slice(0,count);$('practiceQuestions').innerHTML=arr.map((q,i)=>'<div class="question" data-pq="'+i+'"><p><b>Câu '+(i+1)+'.</b> '+esc(q[0])+'</p><div class="options">'+q[1].map((o,j)=>'<label class="opt"><input type="radio" name="p'+i+'" value="'+j+'"><span>'+String.fromCharCode(65+j)+'. '+esc(o)+'</span></label>').join('')+'</div><div class="status s-empty" id="ps'+i+'">CHƯA LÀM</div><div class="explain hidden" id="pe'+i+'"></div></div>').join('');practiceChecked=false;}
+$('practiceType').onchange=renderPractice;$('practiceCount').onchange=renderPractice;
+$('checkPractice').onclick=()=>{let type=$('practiceType').value,arr=bank[type].slice(0,+$('practiceCount').value),score=0;arr.forEach((q,i)=>{let v=document.querySelector('input[name="p'+i+'"]:checked'),s=$('ps'+i),e=$('pe'+i);s.className='status';if(!v){s.classList.add('s-empty');s.textContent='CHƯA LÀM'}else if(+v.value===q[2]){score++;s.classList.add('s-correct');s.textContent='ĐÚNG'}else{s.classList.add('s-wrong');s.textContent='SAI'}e.classList.remove('hidden');e.innerHTML='<b>Đáp án:</b> '+esc(q[1][q[2]])+'. '+esc(q[3]);});practiceChecked=true;saveHistory('Luyện tập – '+guides[type][0],score+'/'+arr.length,null);};
+$('newPractice').onclick=renderPractice;
+function renderExam(){ if(!submitted && !examStart) examStart=Date.now(); $('configWarning').innerHTML='<b>Kiểm tra cấu hình:</b> 12 + 4 câu Đúng/Sai + 6 câu trả lời ngắn = <b>22 câu chính</b>. Phần Đúng/Sai có 16 ý chấm độc lập; tổng cộng 34 đơn vị chấm. Cấu hình hợp lệ, không cần tự sửa.';let h='<h3>Phần I – Trắc nghiệm 4 lựa chọn (12 câu)</h3>';h+=examMC.map((q,i)=>'<div class="question"><p><b>Câu '+(i+1)+'.</b> '+esc(q[0])+'</p><div class="options">'+q[1].map((o,j)=>'<label class="opt"><input type="radio" name="em'+i+'" value="'+j+'" '+(submitted?'disabled':'')+'><span>'+String.fromCharCode(65+j)+'. '+esc(o)+'</span></label>').join('')+'</div><div class="status s-empty" id="ems'+i+'">CHƯA LÀM</div><div class="explain hidden" id="eme'+i+'"></div></div>').join('');
+h+='<h3>Phần II – Đúng/Sai (4 câu, mỗi câu 4 ý)</h3>';for(let q=0;q<4;q++){h+='<div class="question"><p><b>Câu '+(13+q)+'.</b> Đọc từng nhận định và chọn Đúng hoặc Sai.</p>';for(let k=0;k<4;k++){let idx=q*2+(k%2);let st=examTF[idx][0];let statement=q===0?['LAN có phạm vi nhỏ, như gia đình hoặc trường học.','Router và Switch có vai trò hoàn toàn giống nhau.','Internet hỗ trợ học từ xa và truy cập tài liệu.','Internet là tài sản riêng của một gia đình.'][k]:q===1?['Google Docs là phần mềm ứng dụng.','PaaS là hạ tầng như là dịch vụ.','Dịch vụ đám mây có thể tính phí theo mức sử dụng.','IoT chỉ dùng để giải trí.'][k]:q===2?['IoT có thể thu thập dữ liệu tự động.','IoT luôn cần con người nhập dữ liệu thủ công.','Nhà thông minh có thể điều khiển thiết bị theo cảm biến.','IoT không thể cung cấp dữ liệu tức thời.'][k]:['Internet là mạng quy mô toàn cầu.','Hub/Switch kết nối các LAN với nhau thay cho Router.','IaaS liên quan đến hạ tầng như máy chủ/lưu trữ.','IoT có thể giúp tiết kiệm công sức thu thập dữ liệu.'][k];let correct=[ [0,1,0,1],[0,1,0,1],[0,1,0,1],[0,1,0,0] ][q][k];h+='<div style="padding:8px 0;border-top:1px solid #e3eaf3"><p><b>Ý '+String.fromCharCode(97+k)+'.</b> '+esc(statement)+'</p><div class="options">'+['Đúng','Sai'].map((o,j)=>'<label class="opt"><input type="radio" name="tf'+(q*4+k)+'" value="'+j+'" '+(submitted?'disabled':'')+'><span>'+o+'</span></label>').join('')+'</div><div class="status s-empty" id="tfs'+(q*4+k)+'">CHƯA LÀM</div><div class="explain hidden" id="tfe'+(q*4+k)+'"></div></div>'; }h+='</div>';}
+h+='<h3>Phần III – Trả lời ngắn (6 câu)</h3>';h+=examShort.map((q,i)=>'<div class="question"><p><b>Câu '+(17+i)+'.</b> '+esc(q[0])+'</p><label for="sh'+i+'">Câu trả lời</label><input id="sh'+i+'" '+(submitted?'disabled':'')+' placeholder="Nhập đáp án ngắn..."><div class="status s-empty" id="shs'+i+'">CHƯA LÀM</div><div class="explain hidden" id="she'+i+'"></div></div>').join('');
+$('examQuestions').innerHTML=h;}
+// CẤU HÌNH: dán URL Web App Apps Script sau khi triển khai. Để trống khi chưa cấu hình.
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBBYBw_kJr5mJrSsyoqmK5hB9rSkagbZHAYbKPj_1kW7QZG9MB6261MgqeJCiHXXWv/exec';
+function sendResultToTeacher(record){
+  if(!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL.indexOf('https://script.google.com/macros/s/') !== 0){
+    record.syncStatus='Chưa cấu hình URL Google Apps Script';
+    return;
+  }
+  const payload={
+    token:'HAINGUYEN_2026',
+    studentName:record.name, className:record.cls, subject:record.subject,
+    lesson:record.lesson, activity:record.kind, submittedAt:record.time,
+    score:record.score, duration:record.duration, details:record.details,
+    userAgent:navigator.userAgent
+  };
+  // no-cors tránh lỗi CORS khi gửi tới Apps Script; trình duyệt không cho đọc phản hồi,
+  // vì vậy giao diện chỉ báo đã gửi yêu cầu, không khẳng định Google Sheets đã nhận.
+  fetch(GOOGLE_APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),keepalive:true})
+    .then(()=>{record.syncStatus='Đã gửi yêu cầu (chưa xác minh phản hồi máy chủ)'; updateLatestSyncStatus(record.syncStatus);})
+    .catch(()=>{record.syncStatus='Không gửi được; cần kiểm tra kết nối/URL'; updateLatestSyncStatus(record.syncStatus);});
+}
+function updateLatestSyncStatus(message){
+  let el=document.getElementById('syncStatus');
+  if(!el){el=document.createElement('p');el.id='syncStatus';el.className='small';el.setAttribute('role','status');
+    const identity=document.getElementById('identity'); if(identity) identity.appendChild(el);
+    const result=document.getElementById('examResult'); if(result && result.innerHTML) result.appendChild(el.cloneNode(true));
+  }
+  el.textContent='Đồng bộ: '+message;
+}
+function saveHistory(kind,score,details){let hist=JSON.parse(localStorage.getItem('tin10_bai8_history')||'[]');let record={name:$('student').value.trim(),cls:$('className').value.trim(),subject:'Tin học 10',lesson:'Bài 8. Mạng máy tính trong cuộc sống hiện đại',kind,time:new Date().toLocaleString('vi-VN'),score:score===null?'Chờ giáo viên chấm':score,duration:Math.max(0,Math.round((Date.now()-(examStart||sessionStart))/1000))+' giây',details:details||'',syncStatus:'Đang chuẩn bị gửi'};hist.push(record);localStorage.setItem('tin10_bai8_history',JSON.stringify(hist));sendResultToTeacher(record); }
+function renderHistory(){let h=JSON.parse(localStorage.getItem('tin10_bai8_history')||'[]');if(!h.length){$('historyTable').innerHTML='<p>Chưa có kết quả được lưu.</p>';return}$('historyTable').innerHTML='<table><thead><tr><th>Họ tên</th><th>Lớp</th><th>Môn / bài</th><th>Lượt làm</th><th>Thời điểm</th><th>Kết quả</th></tr></thead><tbody>'+h.map(x=>'<tr><td>'+esc(x.name)+'</td><td>'+esc(x.cls)+'</td><td>'+esc(x.subject+' – '+x.lesson)+'</td><td>'+esc(x.kind)+'</td><td>'+esc(x.time)+'</td><td>'+esc(x.score)+'</td></tr>').join('')+'</tbody></table>';}
+$('submitExam').onclick=()=>{if(submitted){$('examResult').innerHTML='<div class="callout">Bài đã nộp và đã khóa chỉnh sửa. Bạn có thể xem lại kết quả hoặc tải/in báo cáo.</div>';return}if(!confirm('Bạn chắc chắn muốn nộp bài? Sau khi nộp, câu trả lời sẽ bị khóa.'))return;let units=0,correct=0,blank=0,review=0;
+examMC.forEach((q,i)=>{units++;let v=document.querySelector('input[name="em'+i+'"]:checked'),s=$('ems'+i),e=$('eme'+i);s.className='status';if(!v){blank++;s.classList.add('s-empty');s.textContent='CHƯA LÀM'}else if(+v.value===q[2]){correct++;s.classList.add('s-correct');s.textContent='ĐÚNG'}else{s.classList.add('s-wrong');s.textContent='SAI'}e.classList.remove('hidden');e.innerHTML='<b>Đáp án:</b> '+esc(q[1][q[2]])+'. '+esc(q[3]);});
+const tfStatements=[
+[['LAN có phạm vi nhỏ, như gia đình hoặc trường học.',0,'LAN có phạm vi địa lí nhỏ.'],['Router và Switch có vai trò hoàn toàn giống nhau.',1,'Switch chuyển dữ liệu trong LAN; Router kết nối các mạng.'],['Internet hỗ trợ học từ xa và truy cập tài liệu.',0,'Đúng theo mục vai trò Internet.'],['Internet là tài sản riêng của một gia đình.',1,'Internet không có chủ sở hữu riêng.']],
+[['Google Docs là phần mềm ứng dụng.',0,'Google Docs là ví dụ SaaS.'],['PaaS là hạ tầng như là dịch vụ.',1,'PaaS là nền tảng; IaaS là hạ tầng.'],['Dịch vụ đám mây có thể tính phí theo mức sử dụng.',0,'Đúng theo định nghĩa.'],['IoT chỉ dùng để giải trí.',1,'SGK nêu nhiều ứng dụng IoT trong đời sống và nghiệp vụ.']],
+[['IoT có thể thu thập dữ liệu tự động.',0,'Đây là đặc điểm cốt lõi.'],['IoT luôn cần con người nhập dữ liệu thủ công.',1,'IoT hỗ trợ tự động hóa.'],['Nhà thông minh có thể điều khiển thiết bị theo cảm biến.',0,'Ví dụ nhà thông minh trong SGK.'],['IoT không thể cung cấp dữ liệu tức thời.',1,'IoT có thể cung cấp dữ liệu tức thời.']],
+[['Internet là mạng quy mô toàn cầu.',0,'Internet có quy mô toàn cầu.'],['Hub/Switch kết nối các LAN với nhau thay cho Router.',1,'Router kết nối các LAN.'],['IaaS liên quan đến hạ tầng như máy chủ/lưu trữ.',0,'IaaS là hạ tầng như dịch vụ.'],['IoT có thể giúp tiết kiệm công sức thu thập dữ liệu.',0,'Tự động hóa giúp giảm thao tác thủ công.']]
+];
+tfStatements.forEach((group,q)=>group.forEach((item,k)=>{units++;let ix=q*4+k,v=document.querySelector('input[name="tf'+ix+'"]:checked'),s=$('tfs'+ix),e=$('tfe'+ix);s.className='status';if(!v){blank++;s.classList.add('s-empty');s.textContent='CHƯA LÀM'}else if(+v.value===item[1]){correct++;s.classList.add('s-correct');s.textContent='ĐÚNG'}else{s.classList.add('s-wrong');s.textContent='SAI'}e.classList.remove('hidden');e.innerHTML='<b>Đáp án:</b> '+(item[1]===0?'Đúng':'Sai')+'. '+esc(item[2]);}));
+examShort.forEach((q,i)=>{units++;let val=$('sh'+i).value.trim(),s=$('shs'+i),e=$('she'+i);s.className='status';if(!val){blank++;s.classList.add('s-empty');s.textContent='CHƯA LÀM';}else{let normalized=val.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/[^a-z0-9 ]/g,'').trim().replace(/\s+/g,' ');let accepted=[q[1],...q[2]].map(x=>x.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/[^a-z0-9 ]/g,'').trim().replace(/\s+/g,' '));if(accepted.includes(normalized)){correct++;s.classList.add('s-correct');s.textContent='ĐÚNG'}else if(i===5){review++;s.classList.add('s-empty');s.textContent='CẦN GIÁO VIÊN XÁC NHẬN'}else{s.classList.add('s-wrong');s.textContent='SAI'} }e.classList.remove('hidden');e.innerHTML='<b>Đáp án tham khảo:</b> '+esc(q[1])+'. '+esc(q[4])+(i===5?'<br><b>Lưu ý:</b> Các cách diễn đạt khác cần giáo viên xác nhận.':'');});
+let points=correct*10/34;submitted=true;document.querySelectorAll('#examQuestions input').forEach(x=>x.disabled=true);$('submitExam').disabled=true;
+$('examResult').innerHTML='<div class="knowledge-card"><h3>Kết quả đề ôn tập</h3><div class="score">'+points.toFixed(2)+'/10 điểm</div><p>Đơn vị đúng: '+correct+' / 34 · Chưa làm: '+blank+' · Cần xem xét: '+review+'</p><p class="small">Điểm là kết quả theo quy tắc ôn tập, cần giáo viên duyệt. Câu trả lời mở có thể cần xác nhận thủ công. Trạng thái gửi dữ liệu sẽ hiển thị bên dưới.</p><div class="btnrow"><button class="primary" onclick="window.print()">In báo cáo</button><button class="light" onclick="newAttempt()">Làm lượt mới</button></div></div>';
+saveHistory('Đề ôn tập',points.toFixed(2)+'/10','Đúng '+correct+'/34; chưa làm '+blank+'; cần xem xét '+review);};
+function newAttempt(){if(!confirm('Bắt đầu lượt làm mới? Kết quả cũ vẫn được lưu trong lịch sử.'))return;submitted=false;examStart=Date.now();$('submitExam').disabled=false;$('examResult').innerHTML='';renderExam();showPage('exam');}
+$('printReport').onclick=()=>window.print();$('printHistory').onclick=()=>window.print();
+$('exportCsv').onclick=()=>{let h=JSON.parse(localStorage.getItem('tin10_bai8_history')||'[]');if(!h.length){alert('Chưa có dữ liệu để xuất.');return}let cols=['Họ tên học sinh','Lớp','Môn','Bài học','Loại lượt làm','Thời điểm','Điểm/Kết quả','Thời gian làm','Chi tiết'];let rows=h.map(x=>[x.name,x.cls,x.subject,x.lesson,x.kind,x.time,x.score,x.duration,x.details]);let csv=[cols,...rows].map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');let blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='lich_su_on_tap_tin_hoc_10_bai_8.csv';a.click();URL.revokeObjectURL(url);};
+$('clearHistory').onclick=()=>{if(confirm('Xóa toàn bộ lịch sử trên trình duyệt này? Không thể hoàn tác.')){localStorage.removeItem('tin10_bai8_history');renderHistory();}};
+const pages=['knowledge','practice','exam','history'];$('prevPage').onclick=()=>showPage(pages[Math.max(0,pages.indexOf(currentPage)-1)]);$('nextPage').onclick=()=>showPage(pages[Math.min(pages.length-1,pages.indexOf(currentPage)+1)]);
+window.showPage=showPage;window.newAttempt=newAttempt;
+</script></body></html>
